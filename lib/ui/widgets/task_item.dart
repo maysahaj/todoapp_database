@@ -14,14 +14,15 @@ class TaskItem extends StatelessWidget {
       onDismissed: (direction) {
         Provider.of<DBProvider>(context, listen: false).deleteTask(task);
       },
+    
       child: Card(
         child: ListTile(
           title: Text(task.title),
+        
           leading: IconButton(
-            
             icon: Icon(
           Icons.delete,
-          color: Colors.red,
+          color: Colors.pink,
         ),
         onPressed: () {
           Provider.of<DBProvider>(context, listen: false).deleteTask(task);

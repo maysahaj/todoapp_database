@@ -58,6 +58,9 @@ class MainScreen extends StatelessWidget {
               backgroundColor: Colors.pink,
         
         title: Text("Todo Application", style: TextStyle(color: Colors.white),),
+        elevation: 0.0,
+        leading: Icon(Icons.menu),
+        
             
             bottom: TabBar(
               indicatorColor: Colors.white,
@@ -105,19 +108,26 @@ class MainScreen extends StatelessWidget {
             showModalBottomSheet(
                 backgroundColor: Colors.pink,
                 builder: (BuildContext context) {
-                  return Padding(
+                  return Container(
+                    // height: MediaQuery.of(context).size.height/2,
                     padding: MediaQuery.of(context).viewInsets,
                     child: Form(
                       key: formKey,
                       child: CupertinoActionSheet(
+
                         actions: <Widget>[
                           CupertinoActionSheetAction(
+
                             onPressed: () {},
                             child: Card(
                               
                               color: Colors.transparent,
                               elevation: 0.0,
-                              child: TextFormField(
+
+                              child:Container(
+                                child:TextFormField(
+
+
                                 validator: (value) {
                                   // ignore: missing_return
                                   if (value.isEmpty) {
@@ -125,8 +135,9 @@ class MainScreen extends StatelessWidget {
                                   }
                                   return null;
                                 },
+                              
                                 decoration: InputDecoration(
-                                  
+                                
                                   labelText: 'Title',
                                   fillColor: Colors.white,
                                   filled: true,
@@ -137,6 +148,7 @@ class MainScreen extends StatelessWidget {
                                   setTitle(value);
                                 },
                               ),
+                              )
                             ),
                           ),
                           CupertinoActionSheetAction(
