@@ -11,6 +11,7 @@ class MainScreen extends StatelessWidget {
   GlobalKey<FormState> formKey = GlobalKey();
   String title;
   String description;
+ 
   setTitle(String value) {
     this.title = value;
   }
@@ -55,13 +56,10 @@ class MainScreen extends StatelessWidget {
         length: 3,
         child: Scaffold(
           appBar: AppBar(
-              backgroundColor: Colors.pink,
-        
+          backgroundColor: Colors.pink, 
         title: Text("Todo Application", style: TextStyle(color: Colors.white),),
         elevation: 0.0,
-        leading: Icon(Icons.menu),
-        
-            
+        leading: Icon(Icons.menu),         
             bottom: TabBar(
               indicatorColor: Colors.white,
               tabs: [
@@ -106,6 +104,7 @@ class MainScreen extends StatelessWidget {
         backgroundColor: Colors.pink,
           onPressed: () {
             showModalBottomSheet(
+              isScrollControlled: true,
                 backgroundColor: Colors.pink,
                 builder: (BuildContext context) {
                   return Container(
@@ -114,7 +113,6 @@ class MainScreen extends StatelessWidget {
                     child: Form(
                       key: formKey,
                       child: CupertinoActionSheet(
-
                         actions: <Widget>[
                           CupertinoActionSheetAction(
 
@@ -126,8 +124,6 @@ class MainScreen extends StatelessWidget {
 
                               child:Container(
                                 child:TextFormField(
-
-
                                 validator: (value) {
                                   // ignore: missing_return
                                   if (value.isEmpty) {

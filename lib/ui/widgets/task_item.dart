@@ -1,7 +1,9 @@
 import 'package:ToDODataBase/models/task_model.dart';
 import 'package:ToDODataBase/providers/db_provider.dart';
+
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+
 
 class TaskItem extends StatelessWidget {
   Task task;
@@ -17,8 +19,11 @@ class TaskItem extends StatelessWidget {
     
       child: Card(
         child: ListTile(
-          title: Text(task.title),
-        
+          onTap: (){
+            final snackBar = SnackBar(content: Text(task.title));
+           Scaffold.of(context).showSnackBar(snackBar);             
+          },
+          title: Text(task.title),  
           leading: IconButton(
             icon: Icon(
           Icons.delete,

@@ -5,7 +5,7 @@ class Task {
   int id;
   String title;
   bool isComplete;
-  Task({this.title, this.isComplete = false});
+  Task({this.title, this.isComplete = false, String description});
   Task.fromJson(Map<String, dynamic> map) {
     this.id = map[DBClient.dbClient.taskIdColumn];
     this.title = map[DBClient.dbClient.taskTiltleColumn];
